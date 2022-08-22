@@ -1,11 +1,11 @@
+import TelegramBot from 'node-telegram-bot-api';
 import dotenv from 'dotenv';
 import Database from 'better-sqlite3';
-import TelegramBot from 'node-telegram-bot-api';
 import moment from 'moment';
 import { PrizeRow } from './models/prize';
 
 dotenv.config();
-const db = new Database('mbway-prizes.sqlite', { readonly: true});
+const db = new Database('../db/mbway-prizes.sqlite', { readonly: true });
 
 const token = process.env.TG_API_TOKEN || 'token-test';
 const userId = process.env.TG_USER_ID || 'some-user-id';
