@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+/* (A) WHOLE PAGE */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* (B) MAIN */
+/* same or more bottom padding than footer height */
+#pageMain {
+  padding-bottom: 50px;
+}
+
+/* (C) FOOTER */
+#pageFoot {
+  /* (C1) FIXED AT BOTTOM */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+
+  /* (C2) DIMENSIONS */
+  width: 100%;
+  height: 40px;
+
+  /* (C3) CENTER TEXT */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

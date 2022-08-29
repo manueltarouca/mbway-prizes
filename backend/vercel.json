@@ -6,5 +6,10 @@
         { "key": "Access-Control-Allow-Origin", "value": "*" }
       ]
     }
-  ]
+  ],
+  "functions": {
+    "api/test.ts": {
+      "includeFiles": "db/**"
+    }
+  }
 }

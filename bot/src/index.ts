@@ -5,7 +5,7 @@ import moment from 'moment';
 import { PrizeRow } from './models/prize';
 
 dotenv.config();
-const db = new Database('../db/mbway-prizes.sqlite', { readonly: true });
+const db = new Database('../backend/db/mbway-prizes.sqlite', { readonly: true });
 
 const token = process.env.TG_API_TOKEN || 'token-test';
 const userId = process.env.TG_USER_ID || 'some-user-id';
