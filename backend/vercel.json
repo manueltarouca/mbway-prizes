@@ -8,7 +8,7 @@
     }
   ],
   "functions": {
-    "api/test.ts": {
+    "api/mbway.ts": {
       "includeFiles": "db/**"
     }
   }

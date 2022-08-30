@@ -11,8 +11,8 @@ export class ControllerService {
   constructor(private httpClient: HttpClient) { }
 
   getItems(): Observable<ResponseItem[]> {
-    return this.httpClient.get<ApiResponse>('https://mbway-prizes-cjkwdmya3-manueltarouca.vercel.app/api/test').pipe(
-      map( res => res.items)
+    return this.httpClient.get<ApiResponse>('https://mbway-prizes-be.vercel.app/api/mbway').pipe(
+      map(res => res.items)
     );
   }
 }
