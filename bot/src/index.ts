@@ -11,8 +11,8 @@ const token = process.env.TG_API_TOKEN || 'token-test';
 const userId = process.env.TG_USER_ID || 'some-user-id';
 const bot = new TelegramBot(token);
 
-const currentDate = moment(new Date()).format('d/M/yyyy');
-const rows: PrizeRow[] = db.prepare('SELECT * FROM prizes WHERE date = ?').all(currentDate);
+const currentDates = [moment(new Date()).format('D/M/yyyy'), moment(new Date()).format('D/MM/yyyy')];
+const rows: PrizeRow[] = db.prepare('SELECT * FROM prizes WHERE date IN (?, ?)').all(currentDates);
 
 (async () => {
   for (let row of rows){
