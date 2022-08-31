@@ -1,23 +1,27 @@
 <header id="pageHead"></header>
 <main id="pageMain">
-  <div style="text-align: center;">
-    <h1>Today's prize/s:</h1>
-    <ng-container *ngFor=" let item of (data | async)?.today as items; index as i ">
-      <h4>{{ item.type}} - {{ item.value }}€</h4>
-      <h2>{{ item.date }}</h2>
-      <h4>{{ item.time }}</h4>
-      <hr *ngIf="i !== items.length-1">
+  <ng-container *ngIf="(data | async) as prizesData">
+    <div style="text-align: center;">
+      <h1>Today's prize/s:</h1>
+      <ng-container *ngFor="let item of prizesData.today; index as i">
+        <h4>{{ item.type}} - {{ item.value }}€</h4>
+        <h2>{{ item.date }}</h2>
+        <h4>{{ item.time }}</h4>
+        <hr *ngIf="i !== prizesData.today.length-1">
+      </ng-container>
+    </div>
+    <ng-container *ngIf="prizesData.tomorow.length > 0">
+      <hr>
+      <div style="text-align: center;">
+        <h1>Tomorrow:</h1>
+        <ng-container *ngFor="let item of prizesData.tomorow; index as i">
+          <h4>{{ item.type}} - {{ item.value }}€</h4>
+          <h2>{{ item.date }}</h2>
+          <h4>{{ item.time }}</h4>
+          <hr *ngIf="i !== prizesData.tomorow.length-1">
+        </ng-container>
+      </div>
     </ng-container>
-  </div>
-  <hr>
-  <div style="text-align: center;">
-    <h1>Tomorrow:</h1>
-    <ng-container *ngFor=" let item of (data | async)?.tomorrow as items; index as i ">
-      <h4>{{ item.type}} - {{ item.value }}€</h4>
-      <h2>{{ item.date }}</h2>
-      <h4>{{ item.time }}</h4>
-      <hr *ngIf="i !== items.length-1">
-    </ng-container>
-  </div>
+  </ng-container>
 </main>
 <footer id="pageFoot">Made by: manueltarouca</footer>
