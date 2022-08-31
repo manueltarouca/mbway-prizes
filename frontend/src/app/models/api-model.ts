@@ -1,5 +1,6 @@
 export interface ApiResponse {
-  items: ResponseItem[];
+  today: ResponseItem[];
+  tomorrow: ResponseItem[];
 }
 
 export interface ResponseItem {

@@ -2,7 +2,17 @@
 <main id="pageMain">
   <div style="text-align: center;">
     <h1>Today's prize/s:</h1>
-    <ng-container *ngFor=" let item of (data | async) as items; index as i ">
+    <ng-container *ngFor=" let item of (data | async)?.today as items; index as i ">
+      <h4>{{ item.type}} - {{ item.value }}€</h4>
+      <h2>{{ item.date }}</h2>
+      <h4>{{ item.time }}</h4>
+      <hr *ngIf="i !== items.length-1">
+    </ng-container>
+  </div>
+  <hr>
+  <div style="text-align: center;">
+    <h1>Tomorrow:</h1>
+    <ng-container *ngFor=" let item of (data | async)?.tomorrow as items; index as i ">
       <h4>{{ item.type}} - {{ item.value }}€</h4>
       <h2>{{ item.date }}</h2>
       <h4>{{ item.time }}</h4>
