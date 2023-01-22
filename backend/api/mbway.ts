@@ -9,7 +9,7 @@ export default async function handler(req: any, res: any) {
   const tomorowRows = db.prepare('SELECT * FROM prizes WHERE date IN (?, ?)').all(tomorowDates);
   console.log(todayRows)
   console.log(tomorowRows)
-  //return res.status(200).json({ today: todayRows, tomorow: tomorowRows });
+  return res.status(200).json({ today: todayRows, tomorow: tomorowRows });
 }
 
 (async () => { handler({} as any, {} as any) })()
