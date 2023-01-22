@@ -11,5 +11,3 @@ export default async function handler(req: any, res: any) {
   console.log(tomorowRows)
   return res.status(200).json({ today: todayRows, tomorow: tomorowRows });
 }
-
-(async () => { handler({} as any, {} as any) })()
