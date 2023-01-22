@@ -7,7 +7,5 @@ export default async function handler(req, res) {
   const tomorowDates = [moment(new Date()).add(1,'day').format('DD/mm/yyyy'), moment(new Date()).add(1,'day').format('DD/mm/yyyy')];
   const todayRows = db.prepare('SELECT * FROM prizes WHERE date IN (?, ?)').all(currentDates);
   const tomorowRows = db.prepare('SELECT * FROM prizes WHERE date IN (?, ?)').all(tomorowDates);
-  console.log(todayRows)
-  console.log(tomorowRows)
-  //return res.status(200).json({ today: todayRows, tomorow: tomorowRows });
+  return res.status(200).json({ today: todayRows, tomorow: tomorowRows });
 }
