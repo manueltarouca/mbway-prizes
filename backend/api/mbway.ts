@@ -1,7 +1,7 @@
 import Database from 'better-sqlite3';
 import moment from 'moment';
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req, res) {
   const db = new Database('./backend/db/mbway-prizes.sqlite', { readonly: true });
   const currentDates = [moment(new Date()).format('DD/mm/yyyy'), moment(new Date()).format('DD/mm/yyyy')];
   const tomorowDates = [moment(new Date()).add(1,'day').format('DD/mm/yyyy'), moment(new Date()).add(1,'day').format('DD/mm/yyyy')];
@@ -11,5 +11,3 @@ export default async function handler(req: any, res: any) {
   console.log(tomorowRows)
   //return res.status(200).json({ today: todayRows, tomorow: tomorowRows });
 }
-
-(async () => { handler({} as any, {} as any) })()
